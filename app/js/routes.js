@@ -9,6 +9,12 @@ dtf.config( function( $stateProvider, $urlRouterProvider ) {
       templateUrl: 'views/home.html'
     })
 
+    .state( 'details', {
+      url: '/details/:id/:name',
+      controller: 'DetailsCtrl',
+      templateUrl: 'views/details.html'
+    })
+
     .state( 'about', {
       url: '/about',
       templateUrl: 'views/about.html'

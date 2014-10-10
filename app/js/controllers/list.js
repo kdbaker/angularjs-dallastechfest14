@@ -1,30 +1,34 @@
 'use strict';
 
 dtf.controller( 'ListCtrl',
-  [ '$scope',
-  function ( $scope ) {
+  [ '$scope', 'ApiService',
+  function ( $scope, ApiService ) {
 
-    $scope.top_speakers = [
-      { 'name': 'Jared Spool',
-        'title': 'CEO & Founding Principal',
-        'company': 'UIE',
-        'slug': 'Writer, researcher, speaker, educator, and expert on usability, software, design, and research.',
-        'image': './images/spool_blue.jpg',
-        'speaking_order': '0' },
-      { 'name': 'Amir Rajan',
-        'title': 'Principal',
-        'company': 'Scratchwork Dev, LLC',
-        'slug': 'Polyglot, Mentor, Trainer, Open Source Contributor, ASP.NET Insider.',
-        'image': './images/rajan_blue.jpg',
-        'speaking_order': '1' },
-      { 'name': 'Brian Sullivan',
-        'title': 'Principal Consultant',
-        'company': 'Improving Enterprises',
-        'slug': 'Web technologist and Microsoft MVP with a passion for teaching.',
-        'image': './images/sullivan_blue.jpg',
-        'speaking_order': '2' }
-    ];
+    var getList = function ( ) {
+      return ApiService
+        .find( $scope.artist_search )
+        .then( function ( apiData ) {
 
-    $scope.orderProp = 'speaking_order';
+          $scope.artists = apiData;
+
+        }, function ( reason ) {
+
+          $scope.error = reason;
+
+        });
+      };
+
+    $scope.doSearch = function( ) {
+
+      // Clear any errors
+      delete $scope.error;
+      $scope.query = '';
+      $scope.orderProp = 'Popularity';
+
+      getList( );
+    }
+
+    $scope.page_title = "Artist Search";
+    $scope.orderProp = 'Popularity';
 
   }]);

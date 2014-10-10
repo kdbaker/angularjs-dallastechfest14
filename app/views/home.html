@@ -1,29 +1,38 @@
-<h1>Dallas Tech Fest '14 Top speakers</h1>
+<h1>{{ page_title }}</h1>
+<form name="artistSearch">
+  <div class="row panel radius">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="Artist Search" ng-model="artist_search" required>
+        </div>
+        <div class="small-2 columns">
+          <button ng-click="doSearch()" class="button postfix" ng-disabled="artistSearch.$invalid">Go</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <div class="row">
   <div class="small-3 columns panel callout radius">
     <div class="search">
-      Search: <br >
+      Filter: <br >
       <input ng-model="query">
     </div>
     <div class="sort-by">
       Sort by:
       <select ng-model="orderProp" style="display: inline;">
-        <option value="speaking_order">Speaking Order</option>
+        <option value="Popularity">Popularity</option>
         <option value="name">Name</option>
-        <option value="company">Company</option>
       </select>
     </div>
   </div>
   <div class="small-9 columns">
     <dl class="top-speakers">
-      <dd ng-repeat="speaker in top_speakers | filter:query | orderBy:orderProp" class="clearfix">
-        <img ng-src="{{ speaker.image }}" class="left" />
-        <p>
-          <b>{{ speaker.name }}</b> <br />
-          {{ speaker.title }}<br />
-          {{ speaker.company }}
-        </p>
-        <p>{{ speaker.slug }}</p>
+      <dd ng-repeat="artist in artists | filter:query | orderBy:orderProp" class="clearfix">
+        <img ng-src="{{ artist.images[1].url }}" width="200" height="200" class="left" />
+        <h3>{{ artist.name }}</h3>
+        <a ui-sref="details({ id: artist.id, name: artist.name })" class="button radius">View Albums</a>
       </dd>
     </dl>
   </div>

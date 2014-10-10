@@ -1,0 +1,17 @@
+<h1>{{ page_title }}</h1>
+<div class="row">
+  <div class="small-3 columns panel callout radius">
+    <div class="search">
+      Filter: <br >
+      <input ng-model="query">
+    </div>
+  </div>
+  <div class="small-9 columns">
+    <dl class="top-speakers">
+      <dd ng-repeat="album in albums | filter:query | orderBy:orderProp" class="clearfix">
+        <img ng-src="{{ album.images[1].url }}" width="200" height="200" class="left" />
+        <h3>{{ album.name }}</h3>
+      </dd>
+    </dl>
+  </div>
+</div>

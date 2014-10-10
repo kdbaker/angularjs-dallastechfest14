@@ -13,3 +13,11 @@ dl.top-speakers dd img {
   padding: 5px;
   width: 100%;
 }
+
+form {
+  margin-bottom: 15px;
+}
+
+form .row {
+  padding-bottom: 0px;
+}
