@@ -1,21 +1,18 @@
 'use strict';
 
 /* App Module */
-var dtf = angular.module( 'dtf', [ ] );
+var dtf = angular.module( 'dtf', [ 'ui.router' ] );
 
 /* App Controller */
 dtf.controller( 'AppCtrl',
   [ '$scope',
   function ( $scope ) {
 
-    $scope.welcome_msg = 'the App Controller';
-
-  }]);
-
-dtf.controller( 'ListCtrl',
-  [ '$scope',
-  function ( $scope ) {
-
-    $scope.welcome_msg = 'the List Controller';
+    $scope.site_nav = [
+      { 'name': 'Home',
+        'state': 'home' },
+      { 'name': 'About',
+        'state': 'about' }
+    ];
 
   }]);
