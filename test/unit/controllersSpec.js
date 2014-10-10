@@ -20,4 +20,20 @@ describe( 'DTF controllers', function() {
 
   });
 
+  describe( 'ListCtrl', function() {
+    var scope, ctrl;
+
+    beforeEach( module( 'dtf' ) );
+
+    beforeEach( inject( function( $controller ) {
+      scope = { };
+      ctrl = $controller( 'ListCtrl', { $scope:scope } );
+    }));
+
+    it( 'should should return from List Controller' , function() {
+      expect( scope.welcome_msg ).toBe( 'the List Controller' );
+    });
+
+  });
+
 });
