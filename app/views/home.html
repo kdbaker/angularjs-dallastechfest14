@@ -1,2 +1,30 @@
-<h1>Let's begin!</h1>
-<h3>Hello from <span>{{ welcome_msg }}</span></h3>
+<h1>Dallas Tech Fest '14 Top speakers</h1>
+<div class="row">
+  <div class="small-3 columns panel callout radius">
+    <div class="search">
+      Search: <br >
+      <input ng-model="query">
+    </div>
+    <div class="sort-by">
+      Sort by:
+      <select ng-model="orderProp" style="display: inline;">
+        <option value="speaking_order">Speaking Order</option>
+        <option value="name">Name</option>
+        <option value="company">Company</option>
+      </select>
+    </div>
+  </div>
+  <div class="small-9 columns">
+    <dl class="top-speakers">
+      <dd ng-repeat="speaker in top_speakers | filter:query | orderBy:orderProp" class="clearfix">
+        <img ng-src="{{ speaker.image }}" class="left" />
+        <p>
+          <b>{{ speaker.name }}</b> <br />
+          {{ speaker.title }}<br />
+          {{ speaker.company }}
+        </p>
+        <p>{{ speaker.slug }}</p>
+      </dd>
+    </dl>
+  </div>
+</div>

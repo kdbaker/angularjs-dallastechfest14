@@ -1,0 +1,15 @@
+/* Speaker List */
+dl.top-speakers dd img {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+/* Sort/Search Filters */
+.search {
+  padding: 0 0 15px 0;
+}
+
+.search input {
+  padding: 5px;
+  width: 100%;
+}

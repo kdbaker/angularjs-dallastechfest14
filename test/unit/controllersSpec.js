@@ -4,22 +4,6 @@
 
 describe( 'DTF controllers', function() {
 
-  describe( 'AppCtrl', function() {
-    var scope, ctrl;
-
-    beforeEach( module( 'dtf' ) );
-
-    beforeEach( inject( function( $controller ) {
-      scope = { };
-      ctrl = $controller( 'AppCtrl', { $scope:scope } );
-    }));
-
-    it( 'should should return from App Controller' , function() {
-      expect( scope.welcome_msg ).toBe( 'the App Controller' );
-    });
-
-  });
-
   describe( 'ListCtrl', function() {
     var scope, ctrl;
 
@@ -30,8 +14,12 @@ describe( 'DTF controllers', function() {
       ctrl = $controller( 'ListCtrl', { $scope:scope } );
     }));
 
-    it( 'should should return from List Controller' , function() {
-      expect( scope.welcome_msg ).toBe( 'the List Controller' );
+    it( 'should should create top_speakers model with 3 speakers' , function() {
+      expect( scope.top_speakers.length ).toBe( 3 );
+    });
+
+    it( 'should set the default value of orderProp model', function() {
+      expect(scope.orderProp).toBe('speaking_order');
     });
 
   });

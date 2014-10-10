@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/foundation/css/normalize.css">
     <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
     <div class="contain-to-grid">
@@ -19,7 +20,9 @@
           </li>
         </ul>
         <section class="top-bar-section">
-          <li ui-sref-active="active" ng-repeat="item in site_nav"><a ui-sref="{{ item.state }}">{{ item.name }}</a></li>
+          <ul class="right">
+            <li ui-sref-active="active" ng-repeat="item in site_nav"><a ui-sref="{{ item.state }}">{{ item.name }}</a></li>
+          </ul>
         </section>
       </nav>
     </div>
