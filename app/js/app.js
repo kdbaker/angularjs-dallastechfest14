@@ -12,7 +12,14 @@ dtf.controller( 'AppCtrl',
       { 'name': 'Home',
         'state': 'home' },
       { 'name': 'About',
-        'state': 'about' }
+        'state': 'about' },
+      { 'name': 'AngularJS Filters',
+        'state': 'filters' }
     ];
 
-  }]);
+  }])
+  .filter('wrapString', function () {
+    return function ( item ) {
+      return 'This is a custom ' + item + ' in AngularJS.';
+    };
+  });

@@ -20,6 +20,11 @@ dtf.config( function( $stateProvider, $urlRouterProvider ) {
       templateUrl: 'views/about.html'
     })
 
+    .state( 'filters', {
+      url: '/angular-filters',
+      templateUrl: 'views/filters.html'
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');
 });
